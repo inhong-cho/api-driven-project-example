@@ -1,5 +1,6 @@
 const express     = require('express')
-const bodyParser  = require('body-parser')
+    , bodyParser  = require('body-parser')
+    , cors        = require('cors')
 
 const port = process.env.PORT || 3000
 const app = express()
@@ -8,13 +9,8 @@ const twitchApi = require('./routes/twitch')
 
 // 미들웨어
 const api = express.Router()
-const client = express.Router()
-
-// 스태틱 라우트
-app.use(express.static('temp'))
 app.use(bodyParser.json())
-
-// client 라우트
+app.use(cors())
 
 // api라우트
 api.use('/twitch', twitchApi)

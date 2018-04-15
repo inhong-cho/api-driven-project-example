@@ -1,5 +1,5 @@
 const request = require('superagent')
-    , config  = require('../../config/config')
+    , config  = require('../config/config')
 
     // constants
 const API_DOMAIN  = 'https://api.twitch.tv/helix'
@@ -22,7 +22,7 @@ exports.requestGamesTop = (req, res, next) => {
 }
 
 exports.requestGameStreamsById = (req, res, next) => {
-  requestTwitchApi(`/games?id=${req.params.id}`)
+  requestTwitchApi(`/streams?game_id=${req.params.id}`)
     .then(r => res.send(r))
     .catch(err => next(err))
 }

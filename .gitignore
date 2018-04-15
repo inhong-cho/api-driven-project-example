@@ -56,6 +56,11 @@ typings/
 
 # dotenv environment variables file
 .env
+node_modules
+
+.DS_Store
 
 package-lock.json
-config/config.js
+server/config/config.js
+
+client/dist/*
